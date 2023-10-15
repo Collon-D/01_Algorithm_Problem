@@ -23,6 +23,7 @@ int main(void)
         else {
             for (int j = 0; j < i; ++j) {
                 multy *= 31;
+                multy %= DIVISOR;
             }
             answer += (tmp[i] - 'a' + 1) * multy; 
         }
