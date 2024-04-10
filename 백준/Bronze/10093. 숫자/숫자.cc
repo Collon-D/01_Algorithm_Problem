@@ -23,7 +23,7 @@ int main()
     if (a == b) cnt = 0;
 
     cout << cnt << "\n";
-    for (int i = a + 1; i < b; ++i)
+    for (ll i = a + 1; i < b; ++i)
         cout << i << " ";
 
     return 0;
