@@ -5,28 +5,36 @@ using namespace std;
 
 int main(void)
 {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr), cout.tie(nullptr);
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr); cout.tie(nullptr);
 
-    int N, M, count = 0; cin >> N >> M;
-    string str; cin >> str;
-    string P = "I";
-    bool isEqual = true;
+	int n, m, answer = 0; cin >> n >> m;
+	string str; cin >> str;
 
-    for (int i = 0; i < N; ++i) P += "OI";
-    
-    for (int i = 0; i < str.size() - P.size() + 1; ++i) {
-        isEqual = true;
-        for (int j = 0; j < P.size(); ++j) {
-            if (P[j] != str[j + i]) {
-                isEqual = false;
-                break;
-            }
-        }
+	for (int i = 0; i < m; ++i)
+	{
+		int k = 0;
+		
+		if (str[i] == 'O')
+		{
+			continue;
+		}
+		else
+		{
+			while (str[i + 1] == 'O' && str[i + 2] == 'I')
+			{
+				k++;
+				if (k == n)
+				{
+					k--;
+					answer++;
+				}
+				i += 2;
+			}
+			k = 0;
+		}
+	}
 
-        count += isEqual ? 1 : 0;
-    }
-    cout << count << "\n";
-
-    return 0;
+	cout << answer;
+	return 0;
 }
